@@ -1,1 +1,13 @@
-<p>hotels works!</p>
+<body>
+    <section class="reveal">
+        @for (item of hotels(); track $index) {
+        <div class="card">
+            <img [src]="item.featuredImage" alt="">
+            <h2> {{item.name}} </h2>
+            <h5> {{item.city}} </h5>
+            <p> {{item.address}} </p>
+            <button routerLink="/rooms/:{{item.id}}">View Rooms</button>
+        </div>
+        }
+    </section>
+</body>
