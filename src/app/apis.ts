@@ -10,6 +10,7 @@ export class Apis {
   constructor(public http: HttpClient) { }
 
   loaderTruck: BehaviorSubject<boolean> = new BehaviorSubject(false)
+  
   getAllHotels() {
     return this.http.get<Hotels[]>("https://hotelbooking.stepprojects.ge/api/Hotels/GetAll")
   }
