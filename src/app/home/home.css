@@ -1,0 +1,9 @@
+section{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFCCC3;
+}
+section img{
+    width: 100%;
+    object-fit: cover;
+}

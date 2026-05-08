@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+nav img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  cursor: pointer;
+}
