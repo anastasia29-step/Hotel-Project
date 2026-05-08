@@ -1,6 +1,6 @@
 import { Component, signal, } from '@angular/core';
 import { Apis } from '../apis';
-import { Hotels as HotelModel } from '../sastumro';
+import { Hotels as HotelModel } from '../sastumroInfo';
 import { RouterLink } from '@angular/router';
 
 @Component({

@@ -1,6 +1,22 @@
 <body>
     <section>
-        <img [src]="" alt="">
-        <h1>  </h1>
+        <div class="upline">
+            <img [src]="hotelInfo().featuredImage" alt="">
+            <h1> {{hotelInfo().name}} </h1>
+        </div>
+        <app-filtration (transit)="filtered($event)"></app-filtration>
     </section>
+    <div class="container">
+        @for (item of hotelRooms(); track $index) {
+        <div class="card">
+            <img [src]="item.images[0].source" alt="">
+            <h2> {{item.name | uppercase }} </h2>
+            <p> {{item.pricePerNight |currency: "EUR" }} </p>
+            <button routerLink="/details/{{item.id}}/{{item.name}}">View Details</button>
+        </div>
+        }
+        @empty {
+        <h1 style="color:#5C4034; font-family: Futura LT W01 Light Oblique">Rooms not found...</h1>
+        }
+    </div>
 </body>

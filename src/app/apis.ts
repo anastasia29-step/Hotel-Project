@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Hotels } from './sastumro';
+import { Hotels } from './sastumroInfo';
 import { BehaviorSubject } from 'rxjs';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +13,10 @@ export class Apis {
   getAllHotels() {
     return this.http.get<Hotels[]>("https://hotelbooking.stepprojects.ge/api/Hotels/GetAll")
   }
-  getHotelid(id: string){
+  getHotelid(id: number){
     return this.http.get(`https://hotelbooking.stepprojects.ge/api/Hotels/GetHotel/${id}`)
+  }
+  filter(info: any){
+    return this.http.post("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered", info)
   }
 }
