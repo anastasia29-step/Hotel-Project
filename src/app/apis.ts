@@ -5,8 +5,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class Apis {
-  constructor(public http: HttpClient){}
+  constructor(public http: HttpClient) { }
 
   loaderTruck: BehaviorSubject<boolean> = new BehaviorSubject(false)
-
+  getAllHotels() {
+    return this.http.get("https://hotelbooking.stepprojects.ge/api/Hotels/GetAll")
+  }
 }

@@ -21,4 +21,5 @@ export class App {
       this.loading.set(data)
     })
   }
+
 }
