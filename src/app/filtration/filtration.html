@@ -35,6 +35,6 @@
     </div>
     <div class="box">
         <button [disabled]="formInfo.invalid" type="submit">APPLY FILTER</button>
-        <button type="reset">RESET</button>
+        <button  (click)="reset()" type="button">RESET</button>
     </div>
 </form>
