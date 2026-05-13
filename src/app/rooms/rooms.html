@@ -9,7 +9,7 @@
     <div class="container">
         @for (item of hotelRooms(); track $index) {
         <div class="card">
-            <img [src]="item.images[0].source" alt="">
+            <img [src]="item.images[1].source" alt="">
             <h2> {{item.name | uppercase }} </h2>
             <p> {{item.pricePerNight |currency: "EUR" }} </p>
             <button routerLink="/details/{{item.id}}/{{item.name}}">View Details</button>
