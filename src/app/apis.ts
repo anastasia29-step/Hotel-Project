@@ -20,4 +20,7 @@ export class Apis {
   filter(info: any){
     return this.http.post("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered", info)
   }
+  roomDetails(id: any){
+    return this.http.get(`https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom/${id}`)
+  }
 }
