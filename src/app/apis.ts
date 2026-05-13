@@ -23,4 +23,7 @@ export class Apis {
   roomDetails(id: any){
     return this.http.get(`https://hotelbooking.stepprojects.ge/api/Rooms/GetRoom/${id}`)
   }
+  bookRoom(info: any){
+    return this.http.post("https://hotelbooking.stepprojects.ge/api/Booking", info, {responseType: "text"})
+  }
 }

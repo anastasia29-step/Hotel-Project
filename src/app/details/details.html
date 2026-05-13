@@ -1,9 +1,33 @@
 <body>
-<section>
-    <div class="left">
-        <img [src]="roomInfo().images[1].source" alt="">
-        <h1> {{roomInfo().name}} </h1>
-        <p>Price: {{roomInfo().pricePerNight}} </p>
-    </div>
-</section>    
+    <section>
+        <div class="left">
+            <img [src]="roomInfo().images[1].source" alt="">
+            <h1> {{roomInfo().name}} </h1>
+            <p>Price: {{roomInfo().pricePerNight}} </p>
+        </div>
+        <form [formGroup]="formInfo" (ngSubmit)="bookRoom()">
+            <h1>Book Your Room</h1>
+            <div class="box">
+                <label for="">Check-In</label>
+                <input type="date" formControlName="checkInDate">
+                <p>Dont leave empty field</p>
+            </div>
+            <div class="box">
+                <label for="">Check-Out</label>
+                <input type="date" formControlName="checkOutDate">
+                <p>Dont leave empty field</p>
+            </div>
+            <div class="box">
+                <label for="">Customer Name</label>
+                <input type="text" formControlName="customerName">
+                <p>Dont leave empty field</p>
+            </div>
+            <div class="box">
+                <label for="">Customer Phone</label>
+                <input type="text" formControlName="customerPhone">
+                <p>Dont leave empty field</p>
+            </div>
+            <button>Book Now</button>
+        </form>
+    </section>
 </body>
