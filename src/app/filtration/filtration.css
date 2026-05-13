@@ -8,10 +8,9 @@ form {
     margin: 40px;
     flex-wrap: wrap;
     border-radius: 20px;
-    gap: 30px;
+    gap: 20px;
     border: 2px solid #ec9282;
     color: #f86349;
-
 }
 
 .box {

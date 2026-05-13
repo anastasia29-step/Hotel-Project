@@ -4,7 +4,7 @@
             <img [src]="hotelInfo().featuredImage" alt="">
             <h1> {{hotelInfo().name}} </h1>
         </div>
-        <app-filtration (transit)="filtered($event)"></app-filtration>
+        <app-filtration class="filtration" (transit)="filtered($event)"></app-filtration>
     </section>
     <div class="container">
         @for (item of hotelRooms(); track $index) {
@@ -12,7 +12,7 @@
             <img [src]="item.images[1].source" alt="">
             <h2> {{item.name | uppercase }} </h2>
             <p> {{item.pricePerNight |currency: "EUR" }} </p>
-            <button routerLink="/details/{{item.id}}/{{item.name}}">View Details</button>
+            <button routerLink="/details/{{item.id}}/{{item.name}}">Book Room</button>
         </div>
         }
         @empty {
