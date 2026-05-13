@@ -1,0 +1,56 @@
+<body>
+
+    <form [formGroup]="formInfo" (ngSubmit)="signUp()">
+        <section>
+            <div class="left">
+                <div class="box">
+                    <label for="">First Name</label>
+                    <input type="text" formControlName="firstName">
+                </div>
+                <div class="box">
+                    <label for="">Last Name</label>
+                    <input type="text" formControlName="lastName">
+                </div>
+                <div class="box">
+                    <label for="">Age</label>
+                    <input type="text" formControlName="age">
+                </div>
+                <div class="box">
+                    <label for="">Email</label>
+                    <input type="email" formControlName="email">
+                </div>
+                <div class="box">
+                    <label for="">Password</label>
+                    <input type="password" formControlName="password">
+                </div>
+            </div>
+            <div class="right">
+                <div class="box">
+                    <label for="">Addres</label>
+                    <input type="text" formControlName="address">
+                </div>
+                <div class="box">
+                    <label for="">Phone</label>
+                    <input type="text" formControlName="phone">
+                </div>
+                <div class="box">
+                    <label for="">Zip Code</label>
+                    <input type="text" formControlName="zipcode">
+                </div>
+                <div class="box">
+                    <label for="">Avatar</label>
+                    <input type="text" formControlName="avatar">
+                </div>
+                <div class="box">
+                    <label for="">Gender</label>
+                    <select name="" id="" formControlName="gender">
+                        <option value="">Male</option>
+                        <option value="">Female</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <button>Sign Up</button>
+    </form>
+
+</body>

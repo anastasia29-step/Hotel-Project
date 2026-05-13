@@ -19,3 +19,9 @@ nav ul {
   gap: 30px;
   cursor: pointer;
 }
+nav ul li{
+  transition: 0.3s;
+}
+nav ul li:hover{
+  font-size: large;
+}
