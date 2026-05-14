@@ -11,13 +11,26 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class SignUp {
   constructor(public service: Apis) { }
 
+  loading: boolean = false;
+  errorMessage: string = '';
+  successMessage: string = '';
 
   formInfo: FormGroup = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    firstName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2)]
+    ),
+    lastName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2)]
+    ),
     age: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)]),
     address: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required),
     zipcode: new FormControl('', Validators.required),
@@ -25,14 +38,29 @@ export class SignUp {
     gender: new FormControl('', Validators.required),
   })
 
-  signUp(){
+  signUp() {
+    if(this.formInfo.invalid){
+      this.formInfo.markAllAsTouched();
+      return;
+    }
+    
+    this.loading = true;
+    this.errorMessage = '';
+    this.successMessage = '';
+
     this.service.signUp(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
+        this.loading = false;
+        this.successMessage = 'Account created successfully';
+        this.formInfo.reset()
       },
       error: (error: any) => {
         console.log(error);
-        
+        this.loading = false;
+        this.errorMessage = 
+        error?.error?.message || 'Something went wrong'
+
       }
     })
   }

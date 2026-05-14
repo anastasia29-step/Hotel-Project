@@ -32,6 +32,7 @@ section {
     flex-direction: column;
 
 }
+
 .left img {
     width: 100%;
     height: 300px;
@@ -39,7 +40,8 @@ section {
     border-radius: 25px;
     box-shadow: 0 0 5px #f86349;
 }
-form{
+
+form {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -50,16 +52,19 @@ form{
     position: relative;
     overflow: hidden;
 }
+
 .box {
     display: flex;
     flex-direction: column;
     gap: 10px;
     font-family: "Futura LT W01 Light Oblique";
 }
+
 .box input:focus {
     background-color: white;
     border: 2px solid #ec9282;
 }
+
 .box input,
 button {
     height: 30px;
@@ -72,23 +77,43 @@ button {
     cursor: pointer;
     outline: none;
 }
-form button{
+
+form button {
     height: 40px;
 }
+
 form button:hover {
     background-color: white;
     border: 1px solid #f86349;
 }
+
 input.ng-dirty.ng-invalid {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 form p {
-  font-size: 10px;
-  color: red;
-  visibility: hidden;
+    font-size: 10px;
+    color: red;
+    visibility: hidden;
 }
 
-input.ng-dirty.ng-invalid + p {
-  visibility: visible;
+input.ng-dirty.ng-invalid+p {
+    visibility: visible;
+}
+
+form h3 {
+    background-color: green;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    font-family: "Futura LT W01 Light Oblique";
+    border-radius: 0 0 20px 20px;
+    transition: 1s;
+}
+
+.bookSMSshow {
+    top: 0 !important;
 }

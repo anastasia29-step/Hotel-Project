@@ -1,0 +1,21 @@
+<body>
+    <form [formGroup]="formInfo" (ngSubmit)="signIn()">
+        <h1>Sign In To Your Account</h1>
+        <div class="box">
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter your email" formControlName="email">
+        </div>
+        <div class="box">
+            <label for="">Password</label>
+            <input type="password" placeholder="Enter your password" formControlName="password">
+        </div>
+        <button [disabled]="loading || formInfo.invalid">
+            {{loading ? 'Loading...' : 'Sign In'}} </button>
+            <p> {{errorMessage}} </p>
+        <div class="field">
+            <p>Don't have an account?</p>
+            <p routerLink="/signUp" style="cursor: pointer; color:#5C4034;">Sign Up</p>
+        </div>
+
+    </form>
+</body>

@@ -29,4 +29,7 @@ export class Apis {
   signUp(info: any){
     return this.http.post("https://api.everrest.educata.dev/auth/sign_up", info, {responseType: "text"})
   }
+  signIn(info: any){
+    return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, {responseType: "text"})
+  }
 }

@@ -1,56 +1,59 @@
 <body>
 
     <form [formGroup]="formInfo" (ngSubmit)="signUp()">
+        <h1>Create An Account</h1>
         <section>
             <div class="left">
                 <div class="box">
                     <label for="">First Name</label>
-                    <input type="text" formControlName="firstName">
+                    <input type="text" placeholder="Enter Your first name" formControlName="firstName">
                 </div>
                 <div class="box">
                     <label for="">Last Name</label>
-                    <input type="text" formControlName="lastName">
+                    <input type="text" placeholder="Enter Your last name" formControlName="lastName">
                 </div>
                 <div class="box">
                     <label for="">Age</label>
-                    <input type="text" formControlName="age">
+                    <input type="text" placeholder="Enter Your age" formControlName="age">
                 </div>
                 <div class="box">
                     <label for="">Email</label>
-                    <input type="email" formControlName="email">
+                    <input type="email" placeholder="Enter your email" formControlName="email">
                 </div>
                 <div class="box">
                     <label for="">Password</label>
-                    <input type="password" formControlName="password">
+                    <input type="password" placeholder="Enter your password" formControlName="password">
                 </div>
             </div>
             <div class="right">
                 <div class="box">
                     <label for="">Addres</label>
-                    <input type="text" formControlName="address">
+                    <input type="text"  placeholder="Enter your address" formControlName="address">
                 </div>
                 <div class="box">
                     <label for="">Phone</label>
-                    <input type="text" formControlName="phone">
+                    <input type="text" placeholder="Enter your phone" formControlName="phone">
                 </div>
                 <div class="box">
                     <label for="">Zip Code</label>
-                    <input type="text" formControlName="zipcode">
+                    <input type="text" placeholder="Enter zip code" formControlName="zipcode">
                 </div>
                 <div class="box">
                     <label for="">Avatar</label>
-                    <input type="text" formControlName="avatar">
+                    <input type="text" placeholder="Avatar URL" formControlName="avatar">
                 </div>
                 <div class="box">
                     <label for="">Gender</label>
                     <select name="" id="" formControlName="gender">
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                        <option value="">Choose Gender</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
                     </select>
                 </div>
             </div>
         </section>
-        <button>Sign Up</button>
+        <button [disabled]="formInfo.invalid || loading"> {{loading ? 'Loading...' : 'Sign Up'}} </button>
     </form>
-
+    <p> {{successMessage}} </p> 
+    <p> {{errorMessage}} </p> 
 </body>
