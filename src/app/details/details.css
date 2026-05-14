@@ -145,3 +145,97 @@ form h3 {
     padding: 10px;
     cursor: pointer;
 }
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
+        min-height: 100vh;
+    }
+
+    section {
+        width: 95%;
+        max-width: 850px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        height: auto;
+    }
+
+    .left img {
+        height: 250px;
+    }
+
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .box input,
+    button {
+        height: 28px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 868px) {
+    body {
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    section {
+        width: 95%;
+        max-width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .left {
+        width: 100%;
+        height: auto;
+    }
+
+    .left img {
+        height: 200px;
+        border-radius: 15px;
+    }
+
+    form {
+        width: 100%;
+        padding: 12px;
+        border-radius: 15px;
+    }
+
+    .box {
+        gap: 8px;
+    }
+
+    .box input,
+    button {
+        height: 36px;
+        border-radius: 12px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    form button {
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    .card {
+        width: 85vw;
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    .card button {
+        height: 40px;
+        padding: 8px;
+    }
+}

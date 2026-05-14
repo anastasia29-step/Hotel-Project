@@ -52,3 +52,54 @@ img{
     height: 70%;
     object-fit: cover;
 }
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    section h1 {
+        font-size: 60px;
+    }
+
+    section h3 {
+        font-size: 18px;
+    }
+
+    section button {
+        height: 35px;
+        width: 130px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 868px) {
+    body {
+        padding: 10px;
+        min-height: 100vh;
+    }
+
+    .reveal {
+        height: auto;
+        gap: 20px;
+    }
+
+    section h1 {
+        font-size: 40px;
+    }
+
+    section h3 {
+        font-size: 16px;
+    }
+
+    section button {
+        height: 35px;
+        width: 120px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    img {
+        height: auto;
+        max-height: 300px;
+    }
+}

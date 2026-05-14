@@ -70,3 +70,56 @@ body {
     color: #f86349;
     border: 3px solid #f86349;
 }
+
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    .reveal {
+        gap: 30px;
+    }
+
+    .card {
+        width: 250px;
+        padding: 12px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card button {
+        height: 35px;
+        width: 120px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 868px) {
+    body {
+        padding: 10px;
+        min-height: auto;
+    }
+
+    .reveal {
+        gap: 20px;
+    }
+
+    .card {
+        width: 85vw;
+        max-width: 350px;
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .card img {
+        height: 150px;
+    }
+
+    .card button {
+        height: 35px;
+        width: 110px;
+        font-size: 13px;
+    }
+}

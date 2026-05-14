@@ -44,3 +44,17 @@
     box-shadow: -38px 0, -14px 0, 14px 0, 38px -12px;
   }
 }
+
+@media (max-width: 1024px) {
+  .loader {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 868px) {
+  .loader {
+    width: 8px;
+    height: 8px;
+  }
+}

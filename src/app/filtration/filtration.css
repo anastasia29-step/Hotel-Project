@@ -53,4 +53,59 @@ button {
     background-color: white;
     border: 1px solid #f86349;
 }
+@media (max-width: 1024px) {
+    form {
+        padding: 15px;
+        margin: 20px;
+        height: auto;
+    }
+
+    .box {
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .box input,
+    select,
+    button {
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .box button {
+        width: 110px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 868px) {
+    form {
+        padding: 12px;
+        margin: 15px 10px;
+        height: auto;
+        border-radius: 15px;
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .box input,
+    select,
+    button {
+        height: 36px;
+        border-radius: 12px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .box button {
+        width: 100%;
+        height: 40px;
+    }
+}
+
 

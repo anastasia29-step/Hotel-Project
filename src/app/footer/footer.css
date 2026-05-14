@@ -8,3 +8,20 @@ footer {
     color: grey;
     font-size: small;
 }
+@media (max-width: 1024px) {
+    footer {
+        height: 45px;
+        padding-left: 50px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 868px) {
+    footer {
+        height: auto;
+        padding: 15px;
+        text-align: center;
+        padding-left: 15px;
+        font-size: 11px;
+    }
+}

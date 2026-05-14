@@ -1,10 +1,15 @@
 <nav>
     <img routerLink="/" src="https://diploma.itstep.org/img/logo.png" alt="">
-    <ul>
-        <li routerLink="/">Home</li>
-        <li routerLink="/hotels">Hotels</li>
-        <li routerLink="/booked-rooms">Booked Rooms</li>
-        <li routerLink="/profile">Profile</li>
-        <li routerLink="/signIn">Sign In</li>
+    <ul #navMenu [class.active]="isMenuOpen">
+        <li routerLink="/" (click)="toggleMenu()">Home</li>
+        <li routerLink="/hotels" (click)="toggleMenu()">Hotels</li>
+        <li routerLink="/booked-rooms" (click)="toggleMenu()">Booked Rooms</li>
+        <li routerLink="/profile" (click)="toggleMenu()">Profile</li>
+        <li routerLink="/signIn" (click)="toggleMenu()">Sign In</li>
     </ul>
+    <div class="hamburger" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>

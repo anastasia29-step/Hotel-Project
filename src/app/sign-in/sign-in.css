@@ -68,3 +68,81 @@ button:hover {
     display: flex;
     gap: 10px;
 }
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        width: 90%;
+        max-width: 380px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .box {
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .box input {
+        height: 28px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 28px;
+        width: 120px;
+        font-size: 14px;
+    }
+
+    .field {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 868px) {
+    body {
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    form {
+        width: 95%;
+        max-width: 100%;
+        height: auto;
+        padding: 15px;
+        border-radius: 15px;
+        gap: 15px;
+    }
+
+    .box {
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .box input {
+        height: 36px;
+        border-radius: 12px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 40px;
+        width: 110px;
+        border-radius: 12px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .field {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .field button {
+        width: 100%;
+    }
+}

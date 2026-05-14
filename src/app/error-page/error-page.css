@@ -47,8 +47,70 @@ button {
     font-size: large;
     font-weight: 600;
 }
-button:hover{
+
+button:hover {
     border: 2px solid #5C4034;
     color: #5C4034;
     background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    .error-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        height: 45px;
+        width: 140px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 868px) {
+    body {
+        padding: 10px;
+    }
+
+    .error-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        height: 44px;
+        width: 120px;
+        border-radius: 8px;
+        font-size: 12px;
+    }
 }

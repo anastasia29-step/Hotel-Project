@@ -42,6 +42,7 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+
 .userArea {
     width: 600px;
     height: 500px;
@@ -65,7 +66,8 @@ body {
     font-family: "Futura LT W01 Light Oblique";
 }
 
-.field input, select {
+.field input,
+select {
     height: 30px;
     border-radius: 17px;
     padding: 15px;
@@ -80,7 +82,7 @@ body {
     border: 2px solid #ec9282;
 }
 
-button{
+button {
     width: 130px;
     height: 30px;
     cursor: pointer;
@@ -149,11 +151,176 @@ button:hover {
     background-color: white;
     border: 1px solid #f86349;
 }
-.out{
+
+.out {
     width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-top: 12px dotted #f86349;
+}
+
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .marcxniv,
+    .narjvniv {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .update {
+        width: 90%;
+        max-width: 550px;
+        height: auto;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .mainArea {
+        gap: 15px;
+    }
+
+    .left,
+    .right {
+        width: 50%;
+    }
+
+    .userArea {
+        width: 90%;
+        max-width: 550px;
+        height: auto;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .field {
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    .field input,
+    select {
+        height: 28px;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        width: 110px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .change {
+        width: 90%;
+        max-width: 550px;
+        height: auto;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .chngBtn {
+        width: 130px;
+        height: 40px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 868px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .marcxniv,
+    .narjvniv {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .update {
+        width: 95%;
+        max-width: 100%;
+        height: auto;
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 15px;
+        flex-direction: column;
+    }
+
+    .mainArea {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .userArea {
+        width: 95%;
+        max-width: 100%;
+        height: auto;
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 15px;
+        flex-direction: column;
+    }
+
+    .field {
+        gap: 6px;
+        font-size: 14px;
+    }
+
+    .field input,
+    select {
+        height: 36px;
+        border-radius: 12px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+    .change {
+        width: 95%;
+        max-width: 100%;
+        height: auto;
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .change input {
+        height: 36px;
+        border-radius: 12px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .chngBtn {
+        width: 100%;
+        height: 45px;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .out {
+        flex-direction: column;
+        gap: 10px;
+        border-top: 8px dotted #f86349;
+    }
 }

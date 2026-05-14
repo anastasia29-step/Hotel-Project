@@ -7,10 +7,11 @@ nav {
   color: white;
   padding: 20px;
 }
-nav img{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+
+nav img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 nav ul {
@@ -19,9 +20,80 @@ nav ul {
   gap: 30px;
   cursor: pointer;
 }
-nav ul li{
+
+nav ul li {
   transition: 0.3s;
 }
-nav ul li:hover{
+
+nav ul li:hover {
   font-size: large;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  nav {
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  nav ul {
+    gap: 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 868px) {
+  nav {
+    justify-content: space-between;
+    height: auto;
+    padding: 15px;
+    flex-wrap: wrap;
+  }
+
+  nav img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background-color: #5C4034;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
