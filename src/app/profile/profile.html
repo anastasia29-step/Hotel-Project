@@ -1,0 +1,65 @@
+<body>
+    <div class="marcxniv">
+        <div class="userArea">
+            <h1> {{userInfo()?.firstName}} </h1>
+            <h3> {{userInfo()?.lastName}} </h3>
+            <img [src]="userInfo()?.avatar" alt="" />
+
+        </div>
+    </div>
+    <div class="marjvniv">
+        <form class="update" [formGroup]="formInfo" (ngSubmit)="updateUser()">
+            <h1>Update Your Account</h1>
+            <div class="mainArea">
+                <div class="left">
+                    <div class="field">
+                        <label for="">firstName</label>
+                        <input type="text" formControlName="firstName" />
+                    </div>
+                    <div class="field">
+                        <label for="">lastName</label>
+                        <input type="text" formControlName="lastName" />
+                    </div>
+                    <div class="field">
+                        <label for="">age</label>
+                        <input type="text" formControlName="age" />
+                    </div>
+                    <div class="field">
+                        <label for="">address</label>
+                        <input type="text" formControlName="address" />
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="field">
+                        <label for="">zipcode</label>
+                        <input type="text" formControlName="zipcode" />
+                    </div>
+                    <div class="field">
+                        <label for="">phone</label>
+                        <input type="text" formControlName="phone" />
+                    </div>
+                    <div class="field">
+                        <label for="">avatar</label>
+                        <input type="text" formControlName="avatar" />
+                    </div>
+                    <div class="field">
+                        <label for="">gender</label>
+                        <input type="text" formControlName="gender" />
+                    </div>
+                </div>
+            </div>
+            <button>UPDATE</button>
+            <button>LOG OUT</button>
+
+        </form>
+
+        <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+            <h1>Change Password</h1>
+            <h6 #passMessage></h6>
+            <input type="password" placeholder="Old Password" formControlName="oldPassword">
+            <input type="password" placeholder="New Password" formControlName="newPassword">
+            <button>CHANGE</button>
+        </form>
+    </div>
+
+</body>

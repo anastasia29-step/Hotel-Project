@@ -7,6 +7,7 @@ import { BookedRooms } from './booked-rooms/booked-rooms';
 import { SignUp } from './sign-up/sign-up';
 import { SignIn } from './sign-in/sign-in';
 import { authGuard } from './auth-guard';
+import { Profile } from './profile/profile';
 
 export const routes: Routes = [
     { path: "", component: Home },
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path: "rooms/:id", component: Rooms},
     {path: "details/:id/:saxeli", component: Details, canActivate: [authGuard]},
     {path: "booked-rooms", component: BookedRooms},
+    {path: "profile", component: Profile},
     {path: "signUp", component: SignUp},
     {path: "signIn", component: SignIn},
 ];
