@@ -31,4 +31,15 @@
             <button>Book Now</button>
         </form>
     </section>
+    <div class="overlay" *ngIf="showLoginCard">
+        <div class="card">
+            <h2>Please log in first</h2>
+            <p>
+                You need to sign in before booking a room.
+            </p>
+            <button (click)="goToSignIn()">
+                Click and sign in here
+            </button>
+        </div>
+    </div>
 </body>

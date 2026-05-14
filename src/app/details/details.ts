@@ -1,6 +1,6 @@
 import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { Apis } from '../apis';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -10,15 +10,27 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './details.css',
 })
 export class Details {
-  constructor() {
+  constructor(public service: Apis,
+     public actR: ActivatedRoute,
+    public router: Router) {
     this.showRoomInfo()
   }
-  public service = inject(Apis);
-  public actR = inject(ActivatedRoute);
   @ViewChild('bookSMS') bookSMS!: ElementRef;
   roomInfo = signal<any>({})
   roomId: any;
+  
 
+  showLoginCard: boolean = false;
+
+  ngOnInit(){
+    let token = localStorage.getItem('token')
+    if(!token){
+      this.showLoginCard = true
+    }
+  }
+  goToSignIn(){
+    this.router.navigate(['/signIn'])
+  }
 
   showRoomInfo() {
     this.actR.params.subscribe((data: any) => {
