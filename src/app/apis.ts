@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Hotels } from './sastumroInfo';
 import { BehaviorSubject } from 'rxjs';
@@ -35,12 +35,30 @@ export class Apis {
     return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, { responseType: "text" })
   }
   getMyInfo() {
-    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth")
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth", { headers })
   }
-  updateProfile(data: any){
-    return this.http.patch("https://api.everrest.educata.dev/auth/update", data,)
+  updateProfile(data: any) {
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.patch("https://api.everrest.educata.dev/auth/update", data, { headers })
   }
-  changePassword(data: any){
-    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", data)
+  changePassword(data: any) {
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", data, { headers })
+  }
+  getAllBookings() {
+    return this.http.get("https://hotelbooking.stepprojects.ge/api/Booking")
+  }
+  deleteBooking(id: number) {
+    return this.http.delete(`https://hotelbooking.stepprojects.ge/api/Booking/${id}`, { responseType: "text" })
   }
 }

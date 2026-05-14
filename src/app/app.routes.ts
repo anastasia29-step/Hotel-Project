@@ -8,6 +8,7 @@ import { SignUp } from './sign-up/sign-up';
 import { SignIn } from './sign-in/sign-in';
 import { authGuard } from './auth-guard';
 import { Profile } from './profile/profile';
+import { ErrorPage } from './error-page/error-page';
 
 export const routes: Routes = [
     { path: "", component: Home },
@@ -18,4 +19,5 @@ export const routes: Routes = [
     {path: "profile", component: Profile},
     {path: "signUp", component: SignUp},
     {path: "signIn", component: SignIn},
+    {path: '**', component: ErrorPage}
 ];

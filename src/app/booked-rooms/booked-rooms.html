@@ -1,1 +1,24 @@
-<p>booked-rooms works!</p>
+<body>
+
+    <ul>
+        <li class="main">
+            <h2>Customer Name</h2>
+            <h2>Customer Phone</h2>
+            <h2>Check In Date</h2>
+            <h2>Check Out Date</h2>
+            <h2>Total Price</h2>
+            <h1 #removeSMS> Lorem, ipsum dolor.</h1>
+        </li>
+        @for (item of bookedRooms(); track $index) {
+        <li>
+            <h3> {{(item.customerName | uppercase) == null ? 'GUEST' : ((item.customerName | uppercase).slice(0, 15) +
+                "...")}} </h3>
+            <h3> {{item.customerPhone}} </h3>
+            <h3> {{item.checkInDate | date}} </h3>
+            <h3> {{item.checkOutDate | date}} </h3>
+            <h3> {{item.totalPrice | currency}} </h3>
+            <button (click)="removeBooking(item.id)">Remove</button>
+        </li>
+        }
+    </ul>
+</body>

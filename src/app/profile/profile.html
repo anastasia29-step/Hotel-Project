@@ -14,51 +14,60 @@
                 <div class="left">
                     <div class="field">
                         <label for="">firstName</label>
-                        <input type="text" formControlName="firstName" />
+                        <input type="text" placeholder="First Name" formControlName="firstName" />
                     </div>
                     <div class="field">
                         <label for="">lastName</label>
-                        <input type="text" formControlName="lastName" />
+                        <input type="text" placeholder="Last Name" formControlName="lastName" />
                     </div>
                     <div class="field">
                         <label for="">age</label>
-                        <input type="text" formControlName="age" />
+                        <input type="text" placeholder="Age" formControlName="age" />
                     </div>
                     <div class="field">
                         <label for="">address</label>
-                        <input type="text" formControlName="address" />
+                        <input type="text" placeholder="Address" formControlName="address" />
                     </div>
                 </div>
                 <div class="right">
                     <div class="field">
                         <label for="">zipcode</label>
-                        <input type="text" formControlName="zipcode" />
+                        <input type="text" placeholder="Zip Code" formControlName="zipcode" />
                     </div>
                     <div class="field">
                         <label for="">phone</label>
-                        <input type="text" formControlName="phone" />
+                        <input type="text" placeholder="Phone" formControlName="phone" />
                     </div>
                     <div class="field">
                         <label for="">avatar</label>
-                        <input type="text" formControlName="avatar" />
+                        <input type="text" placeholder="Avatar URL" formControlName="avatar" />
                     </div>
                     <div class="field">
                         <label for="">gender</label>
-                        <input type="text" formControlName="gender" />
+                        <select name="" id="" formControlName="gender">
+                            <option value="">Choose Gender</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
                     </div>
                 </div>
             </div>
             <button>UPDATE</button>
-            <button>LOG OUT</button>
+
+            <div class="out">
+                <h3>If you want to log out, just click the button</h3>
+                <button>LOG OUT</button>
+            </div>
+
 
         </form>
 
-        <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <form class="change" [formGroup]="passwordForm" (ngSubmit)="changePassword()">
             <h1>Change Password</h1>
             <h6 #passMessage></h6>
             <input type="password" placeholder="Old Password" formControlName="oldPassword">
             <input type="password" placeholder="New Password" formControlName="newPassword">
-            <button>CHANGE</button>
+            <button class="chngBtn">CHANGE</button>
         </form>
     </div>
 

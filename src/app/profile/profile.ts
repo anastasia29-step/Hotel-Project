@@ -59,7 +59,6 @@ export class Profile {
   }
 
   changePassword() {
-
     this.service.changePassword(this.passwordForm.value).subscribe({
       next: (data: any) => {
         this.passMessage.nativeElement.innerText = "Password Changed"
