@@ -24,7 +24,7 @@
             <img [src]="item.images[1].source" alt="">
             <h2> {{item.name | uppercase }} </h2>
             <p> {{item.pricePerNight |currency: "EUR" }} </p>
-            <button (click)="onBookRoomClick()">Book Room</button>
+            <button (click)="onBookRoomClick(item._id), item.name">Book Room</button>
         </div>
         }
         @empty {

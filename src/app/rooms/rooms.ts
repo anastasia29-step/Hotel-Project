@@ -17,10 +17,13 @@ export class Rooms {
   }
   showLoginCard: boolean = false;
 
-  onBookRoomClick() {
+  onBookRoomClick(roomId: string, roomName: string) {
     let token = localStorage.getItem('token')
     if (!token) {
       this.showLoginCard = true
+    }
+    else {
+      this.router.navigate(['/details/${room.id}/${roomName}'])
     }
   }
 
