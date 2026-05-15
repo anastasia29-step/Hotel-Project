@@ -15,7 +15,7 @@ export class Profile implements OnInit {
     public router: Router,
     public actR: ActivatedRoute
   ) { }
-  
+
   userInfo = signal<MyInfo | undefined>(undefined);
 
   @ViewChild("passMessage") passMessage!: ElementRef
@@ -90,11 +90,6 @@ export class Profile implements OnInit {
     })
   }
   updateUser() {
-    if (!this.formInfo.valid) {
-      console.log("Form is invalid");
-      return;
-    }
-
     this.service.updateProfile(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
@@ -106,5 +101,10 @@ export class Profile implements OnInit {
         alert("Failed to update profile: " + (cudi.error?.error || "Unknown error"));
       }
     })
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/sign-in']);
   }
 }
