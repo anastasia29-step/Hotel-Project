@@ -23,7 +23,7 @@ export class Rooms {
       this.showLoginCard = true
     }
     else {
-      this.router.navigate(['/details/${room.id}/${roomName}'])
+      this.router.navigate(['/details', roomId, roomName])
     }
   }
 

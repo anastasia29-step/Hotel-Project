@@ -2,8 +2,14 @@
     <section>
         <div class="left">
             <img [src]="roomInfo().images[3].source" alt="">
-            <h1> {{roomInfo().name}} </h1>
-            <p>Price: {{roomInfo().pricePerNight}} </p>
+            <div *ngIf="!roomInfo() || !roomInfo().images">
+                <p>Loading room details...</p>
+            </div>
+            <div *ngIf="roomInfo() && roomInfo().images">
+                <h1> {{roomInfo().name}} </h1>
+                <p>Price: {{roomInfo().pricePerNight}} </p>
+            </div>
+
         </div>
 
         <form [formGroup]="formInfo" (ngSubmit)="bookRoom()">
