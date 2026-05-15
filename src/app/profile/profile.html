@@ -1,8 +1,7 @@
 <body>
     <div class="marcxniv">
+        <h1> {{userInfo()?.firstName}} {{userInfo()?.lastName}}</h1>
         <div class="userArea">
-            <h1> {{userInfo()?.firstName}} </h1>
-            <h3> {{userInfo()?.lastName}} </h3>
             <img [src]="userInfo()?.avatar" alt="">
         </div>
     </div>

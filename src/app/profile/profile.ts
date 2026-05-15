@@ -93,6 +93,7 @@ export class Profile {
 
   logOut() {
     this.cookie.delete('user');
+    localStorage.removeItem('token')
     this.showLoginCard = true
   }
   closeOverlay() {

@@ -13,6 +13,12 @@ body {
     gap: 10px;
 }
 
+.marcxniv {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+
 .update {
     width: 600px;
     height: 550px;
@@ -44,18 +50,24 @@ body {
 }
 
 .userArea {
-    width: 600px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
     background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 25px;
     margin: 40px;
     flex-wrap: wrap;
-    border-radius: 20px;
+    border-radius: 50%;
     gap: 20px;
     border: 2px solid #ec9282;
     color: #f86349;
+}
+
+.marcxniv h1 {
+    font-family: "Sora", sans-serif;
+    font-weight: 400;
+    color: #f86349;
+
 }
 
 .userArea img {
@@ -63,7 +75,7 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #f86349;
+    border: 2px solid #f86349;
     box-shadow: 0 4px 12px rgba(248, 99, 73, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
