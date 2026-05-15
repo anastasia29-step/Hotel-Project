@@ -2,11 +2,11 @@ import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core'
 import { Apis } from '../apis';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgIf } from "../../../node_modules/@angular/common/types/_common_module-chunk";
+import { CommonModule, NgIf } from "../../../node_modules/@angular/common/types/_common_module-chunk";
 
 @Component({
   selector: 'app-details',
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })

@@ -29,10 +29,10 @@ export class Apis {
     return this.http.post("https://hotelbooking.stepprojects.ge/api/Booking", info, { responseType: "text" })
   }
   signUp(info: any) {
-    return this.http.post("https://api.everrest.educata.dev/auth/sign_up", info, { responseType: "text" })
+    return this.http.post("https://api.everrest.educata.dev/auth/sign_up", info, { responseType: "json" })
   }
   signIn(info: any) {
-    return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, { responseType: "text" })
+    return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, { responseType: "json" })
   }
   getMyInfo() {
     let token = localStorage.getItem('token');

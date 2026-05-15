@@ -51,7 +51,8 @@ export class SignIn {
       next: (data: any) => {
         console.log(data);
         this.loading = false;
-        localStorage.setItem('token', data.access_token)
+        let token = data.access_token || data.token || data;
+        localStorage.setItem('token', token)
         this.router.navigate(['/']) 
       },
       error: (error: any) => {

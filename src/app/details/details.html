@@ -1,11 +1,11 @@
 <body>
     <section>
         <div class="left">
-            <img [src]="roomInfo().images[3].source" alt="">
-            <div *ngIf="!roomInfo() || !roomInfo().images">
+            <div *ngIf="!roomInfo() || !roomInfo().images  || roomInfo().images.length === 0">
                 <p>Loading room details...</p>
             </div>
-            <div *ngIf="roomInfo() && roomInfo().images">
+            <div *ngIf="roomInfo() && roomInfo().images && roomInfo().images.length > 3">
+                <img [src]="roomInfo().images[3].source" alt="">
                 <h1> {{roomInfo().name}} </h1>
                 <p>Price: {{roomInfo().pricePerNight}} </p>
             </div>
