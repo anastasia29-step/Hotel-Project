@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild, OnInit } from '@angular/core';
 import { Apis } from '../apis';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
@@ -10,11 +10,12 @@ import { MyInfo } from './../my-info';
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
-export class Profile {
+export class Profile implements OnInit {
   constructor(public service: Apis,
     public router: Router,
     public actR: ActivatedRoute
-  ) { this.loadUserData() }
+  ) { }
+  
   userInfo = signal<MyInfo | undefined>(undefined);
 
   @ViewChild("passMessage") passMessage!: ElementRef
@@ -34,6 +35,10 @@ export class Profile {
     oldPassword: new FormControl(),
     newPassword: new FormControl(),
   })
+
+  ngOnInit() {
+    this.loadUserData();
+  }
 
   loadUserData() {
     this.service.getMyInfo().subscribe({
@@ -59,29 +64,48 @@ export class Profile {
   }
 
   changePassword() {
+    if (!this.passwordForm.valid || !this.passwordForm.value.oldPassword || !this.passwordForm.value.newPassword) {
+      this.passMessage.nativeElement.innerText = "Please fill in all password fields"
+      this.passMessage.nativeElement.style.color = "red"
+      return;
+    }
+
     this.service.changePassword(this.passwordForm.value).subscribe({
       next: (data: any) => {
-        this.passMessage.nativeElement.innerText = "Password Changed"
+        this.passMessage.nativeElement.innerText = "Password Changed Successfully"
         this.passMessage.nativeElement.style.color = "green"
+        this.passwordForm.reset();
+        setTimeout(() => {
+          this.passMessage.nativeElement.innerText = "";
+        }, 3000);
       },
       error: (cudi: any) => {
-        console.log();
-        this.passMessage.nativeElement.innerText = cudi.error.error
+        console.log(cudi);
+        this.passMessage.nativeElement.innerText = cudi.error?.error || "Password change failed"
         this.passMessage.nativeElement.style.color = "red"
+        setTimeout(() => {
+          this.passMessage.nativeElement.innerText = "";
+        }, 3000);
       }
     })
   }
 
 
   updateUser() {
+    if (!this.formInfo.valid) {
+      console.log("Form is invalid");
+      return;
+    }
 
     this.service.updateProfile(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
-
+        this.loadUserData();
+        alert("Profile updated successfully!");
       },
       error: (cudi: any) => {
-
+        console.log(cudi);
+        alert("Failed to update profile: " + (cudi.error?.error || "Unknown error"));
       }
     })
   }
