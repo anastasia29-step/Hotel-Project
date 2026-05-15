@@ -2,8 +2,7 @@ import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { Apis } from '../apis';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule} from "../../../node_modules/@angular/common/types/_common_module-chunk";
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-details',
   imports: [ReactiveFormsModule, CommonModule],
@@ -23,16 +22,16 @@ export class Details {
 
   showRoomInfo() {
     this.actR.params.subscribe((data: any) => {
-      console.log('Route params:', data);
+      console.log(data.id);
       this.roomId = data.id;
       this.service.roomDetails(data.id).subscribe({
         next: (roomsData: any) => {
           console.log('Room details response:', roomsData);
           this.roomInfo.set(roomsData)
-        }, 
+        },
         error: (error: any) => {
           console.error('Error fetching room details:', error);
-          
+
         }
       })
     });

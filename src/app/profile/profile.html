@@ -54,9 +54,21 @@
             </div>
             <button>UPDATE</button>
 
+            <div class="overlay" *ngIf="showLoginCard" (click)="closeOverlay()">
+                <div class="card" (click)="$event.stopPropagation()">
+                    <button class="close-btn" (click)="closeOverlay()">X</button>
+                    <h1>You have logged out successfully.</h1>
+                    <div class="sides">
+                        <h1>Go back to</h1>
+                        <button style="font-size: large; display: flex; align-items: center; justify-content: center;"
+                            routerLink="/">Home</button>
+                    </div>
+                </div>
+
+            </div>
             <div class="out">
                 <h3>If you want to log out, just click the button</h3>
-                <button>LOG OUT</button>
+                <button (click)="logOut()">LOG OUT</button>
             </div>
         </form>
         <form class="change" [formGroup]="passwordForm" (ngSubmit)="changePassword()">

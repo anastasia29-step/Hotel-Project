@@ -161,6 +161,81 @@ button:hover {
     border-top: 12px dotted #f86349;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.overlay .card {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    border: 3px solid #f86349;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 17px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.overlay .card h1 {
+    color: #5C4034;
+    font-family: "Futura LT W01 Light Oblique";
+    font-size: 24px;
+    margin: 0;
+}
+.sides{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.overlay .card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #f86349;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: 0.2s;
+}
+
+.overlay .card .close-btn:hover {
+    color: #5C4034;
+    transform: scale(1.2);
+}
+
+
+
 @media (max-width: 1024px) {
     body {
         flex-direction: column;
@@ -232,7 +307,6 @@ button:hover {
     }
 }
 
-/* Mobile styles */
 @media (max-width: 868px) {
     body {
         flex-direction: column;

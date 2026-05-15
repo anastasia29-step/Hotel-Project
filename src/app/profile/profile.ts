@@ -1,13 +1,14 @@
 import { Component, ElementRef, signal, ViewChild, OnInit } from '@angular/core';
 import { Apis } from '../apis';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyInfo } from './../my-info';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
@@ -34,8 +35,8 @@ export class Profile {
   });
 
   passwordForm: FormGroup = new FormGroup({
-    oldPassword: new FormControl(),
-    newPassword: new FormControl(),
+    oldPassword: new FormControl('', Validators.required),
+    newPassword: new FormControl('', Validators.required),
   })
 
 
@@ -77,20 +78,24 @@ export class Profile {
   }
 
   updateUser() {
-
     this.service.updateProfile(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
 
       },
       error: (cudi: any) => {
+        console.log(cudi);
 
       }
     })
   }
+  showLoginCard: boolean = false;
 
   logOut() {
     this.cookie.delete('user');
-    this.router.navigate(['/']);
+    this.showLoginCard = true
+  }
+  closeOverlay() {
+    this.showLoginCard = false
   }
 }

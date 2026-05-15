@@ -36,13 +36,18 @@ export class Apis {
     return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, { responseType: "json" })
   }
   getMyInfo() {
-    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth", {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
+    let token = this.cookie.get("user")?.trim();
+    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth", {headers: {Authorization: `Bearer ${token}`}})
   }
   updateProfile(data: any) {
-    return this.http.patch("https://api.everrest.educata.dev/auth/update", data, {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
+    let token = this.cookie.get("user")?.trim();
+    return this.http.patch("https://api.everrest.educata.dev/auth/update", data, {headers: {Authorization: `Bearer ${token}`}})
   }
   changePassword(info: any) {
-    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", info, {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
+    let token = this.cookie.get("user")?.trim();
+    console.log("CHANGE PASSWORD TOKEN:", token);
+    
+    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", info, {headers: {Authorization: `Bearer ${token}`}})
   }
   getAllBookings() {
     return this.http.get("https://hotelbooking.stepprojects.ge/api/Booking")

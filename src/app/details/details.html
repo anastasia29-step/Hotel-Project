@@ -1,18 +1,9 @@
 <body>
     <section>
         <div class="left">
-            @if (!roomInfo() || !roomInfo().images || roomInfo().images.length === 0) {
-            <div>
-                <p>Loading room details...</p>
-            </div> }
-            @if (roomInfo() && roomInfo().images && roomInfo().images.length > 3) {
-            <div>
-                <img [src]="roomInfo().images[1].source" alt="">
-                <h1> {{roomInfo().name}} </h1>
-                <p>Price: {{roomInfo().pricePerNight}} </p>
-            </div> }
-
-
+            <img [src]="roomInfo()?.images?.[1]?.source" alt="">
+            <h1> {{roomInfo()?.name}} </h1>
+            <p>Price: {{roomInfo()?.pricePerNight}} </p>
         </div>
 
         <form [formGroup]="formInfo" (ngSubmit)="bookRoom()">
@@ -38,8 +29,7 @@
                 <input type="text" formControlName="customerPhone">
                 <p>Dont leave empty field</p>
             </div>
-            <button>Book Now</button>
+            <button [disabled]="formInfo.invalid">Book Now</button>
         </form>
     </section>
-
 </body>

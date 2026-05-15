@@ -42,17 +42,10 @@ export class SignIn {
     ])
   });
   signIn(){
-    if(this.formInfo.invalid){
-      this.formInfo.markAllAsTouched();
-      return
-    }
-
-    this.loading = true;
     this.errorMessage = '';
     this.service.signIn(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.loading = false;
         this.cookie.set("user", data.access_token) 
         this.router.navigate(['/']) 
       },
