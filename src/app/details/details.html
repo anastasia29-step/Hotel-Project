@@ -5,6 +5,7 @@
             <h1> {{roomInfo().name}} </h1>
             <p>Price: {{roomInfo().pricePerNight}} </p>
         </div>
+
         <form [formGroup]="formInfo" (ngSubmit)="bookRoom()">
             <h3 #bookSMS> Lorem ipsum dolor sit.</h3>
             <h1>Book Your Room</h1>
@@ -31,15 +32,5 @@
             <button>Book Now</button>
         </form>
     </section>
-    <div class="overlay" *ngIf="showLoginCard">
-        <div class="card">
-            <h2>Please log in first</h2>
-            <p>
-                You need to sign in before booking a room.
-            </p>
-            <button (click)="goToSignIn()">
-                Click and sign in here
-            </button>
-        </div>
-    </div>
+
 </body>

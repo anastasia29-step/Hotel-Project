@@ -89,8 +89,6 @@ export class Profile implements OnInit {
       }
     })
   }
-
-
   updateUser() {
     if (!this.formInfo.valid) {
       console.log("Form is invalid");

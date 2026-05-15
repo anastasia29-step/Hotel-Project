@@ -11,26 +11,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class Details {
   constructor(public service: Apis,
-     public actR: ActivatedRoute,
+    public actR: ActivatedRoute,
     public router: Router) {
     this.showRoomInfo()
   }
   @ViewChild('bookSMS') bookSMS!: ElementRef;
   roomInfo = signal<any>({})
   roomId: any;
-  
 
-  showLoginCard: boolean = false;
-
-  ngOnInit(){
-    let token = localStorage.getItem('token')
-    if(!token){
-      this.showLoginCard = true
-    }
-  }
-  goToSignIn(){
-    this.router.navigate(['/signIn'])
-  }
 
   showRoomInfo() {
     this.actR.params.subscribe((data: any) => {
@@ -79,4 +67,6 @@ export class Details {
       alert("Please, choose available dates")
     }
   }
+
+
 }

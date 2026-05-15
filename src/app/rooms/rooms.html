@@ -6,13 +6,25 @@
         </div>
         <app-filtration class="filtration" (transit)="filtered($event)"></app-filtration>
     </section>
+    <div class="overlay" *ngIf="showLoginCard" (click)="closeOverlay()">
+        <div class="card" (click)="$event.stopPropagation()">
+            <button class="close-btn" (click)="closeOverlay()">X</button>
+            <h2>Please log in first</h2>
+            <p>
+                You need to sign in before booking a room.
+            </p>
+            <button class="signin-btn" (click)="goToSignIn()">
+                Click and sign in here
+            </button>
+        </div>
+    </div>
     <div class="container">
         @for (item of hotelRooms(); track $index) {
         <div class="card">
             <img [src]="item.images[1].source" alt="">
             <h2> {{item.name | uppercase }} </h2>
             <p> {{item.pricePerNight |currency: "EUR" }} </p>
-            <button routerLink="/details/{{item.id}}/{{item.name}}">Book Room</button>
+            <button (click)="onBookRoomClick()">Book Room</button>
         </div>
         }
         @empty {

@@ -7,6 +7,11 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    transition: filter 0.3s ease;
+}
+
+body.blur-background {
+    filter: blur(5px) brightness(0.7)
 }
 
 .upline {
@@ -22,16 +27,19 @@ body {
     font-size: 50px;
 
 }
-section{
+
+section {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
-.filtration{
+
+.filtration {
     margin-left: -80px;
 }
+
 .upline img {
     width: 400px;
     height: 300px;
@@ -63,6 +71,7 @@ section{
     transition: 0.4s;
     cursor: pointer;
 }
+
 .card img {
     width: 100%;
     height: 200px;
@@ -70,6 +79,7 @@ section{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
+
 .card button {
     height: 40px;
     width: 140px;
@@ -82,11 +92,96 @@ section{
     cursor: pointer;
     transition: 0.6s;
 }
+
 .card button:hover {
     background-color: white;
     color: #f86349;
     border: 3px solid #f86349;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.overlay .card {
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border: 3px solid #f86349;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.overlay .card h2 {
+    color: #5C4034;
+    font-family: "Futura LT W01 Light Oblique";
+    font-size: 24px;
+    margin: 0;
+}
+
+.overlay .card p {
+    color: #5C4034;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.overlay .card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #f86349;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: 0.2s;
+}
+
+.overlay .card .close-btn:hover {
+    color: #5C4034;
+    transform: scale(1.2);
+}
+
+.overlay .card .signin-btn {
+    width: 220px;
+    height: 50px;
+    background-color: #ec9282;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+.overlay .card .signin-btn:hover {
+    background-color: #e8533a;
+    border: none;
+}
+
 @media (max-width: 1024px) {
     body {
         padding: 15px;

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { Apis } from '../apis';
-import { RouterLink, ActivatedRoute, Params } from '@angular/router';
+import { RouterLink, ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Filtration } from "../filtration/filtration";
@@ -12,10 +12,25 @@ import { Filtration } from "../filtration/filtration";
   styleUrl: './rooms.css',
 })
 export class Rooms {
-  constructor(public actR: ActivatedRoute, public service: Apis) {
+  constructor(public actR: ActivatedRoute, public service: Apis, public router: Router) {
     this.showRooms()
   }
+  showLoginCard: boolean = false;
 
+  onBookRoomClick() {
+    let token = localStorage.getItem('token')
+    if (!token) {
+      this.showLoginCard = true
+    }
+  }
+
+  closeOverlay() {
+    this.showLoginCard = false
+  }
+
+  goToSignIn() {
+    this.router.navigate(['/signIn'])
+  }
   hotelInfo = signal<any>({})
   hotelRooms = signal<any>([])
 
