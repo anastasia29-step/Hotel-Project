@@ -58,3 +58,10 @@
     height: 8px;
   }
 }
+
+@media (max-width: 600px) {
+  .loader {
+    width: 6px;
+    height: 6px;
+  }
+}

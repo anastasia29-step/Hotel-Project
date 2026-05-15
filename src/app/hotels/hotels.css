@@ -73,6 +73,7 @@ body {
 
 @media (max-width: 1024px) {
     body {
+        height: 200vh;
         padding: 15px;
     }
 
