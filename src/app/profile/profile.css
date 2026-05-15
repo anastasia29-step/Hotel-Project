@@ -58,6 +58,21 @@ body {
     color: #f86349;
 }
 
+.userArea img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f86349;
+    box-shadow: 0 4px 12px rgba(248, 99, 73, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.userArea img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(248, 99, 73, 0.3);
+}
+
 .field {
     display: flex;
     flex-direction: column;
@@ -184,6 +199,7 @@ button:hover {
         opacity: 1;
     }
 }
+
 .overlay .card {
     width: 400px;
     height: 200px;
@@ -206,11 +222,13 @@ button:hover {
     font-size: 24px;
     margin: 0;
 }
-.sides{
+
+.sides {
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
 .overlay .card .close-btn {
     position: absolute;
     top: 10px;
@@ -271,6 +289,11 @@ button:hover {
         height: auto;
         margin: 20px auto;
         padding: 20px;
+    }
+
+    .userArea img {
+        width: 150px;
+        height: 150px;
     }
 
     .field {
