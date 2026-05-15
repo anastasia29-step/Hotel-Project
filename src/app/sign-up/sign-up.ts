@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Apis } from '../apis';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './sign-up.css',
 })
 export class SignUp {
-  constructor(public service: Apis) { }
+  constructor(public service: Apis, public cookie: CookieService, public router: Router) { }
 
   loading: boolean = false;
   errorMessage: string = '';

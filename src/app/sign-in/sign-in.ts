@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { Apis } from '../apis';
 import { email } from '@angular/forms/signals';
 import { ParseSourceFile } from '@angular/compiler';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,8 @@ import { ParseSourceFile } from '@angular/compiler';
 export class SignIn {
   constructor(public service: Apis,
     public router: Router,
-    public actR: ActivatedRoute
+    public actR: ActivatedRoute,
+    public cookie: CookieService
   ){}
 
   message: string = '';
@@ -51,8 +53,7 @@ export class SignIn {
       next: (data: any) => {
         console.log(data);
         this.loading = false;
-        let token = data.access_token || data.token || data;
-        localStorage.setItem('token', token)
+        this.cookie.set("user", data.access_token) 
         this.router.navigate(['/']) 
       },
       error: (error: any) => {

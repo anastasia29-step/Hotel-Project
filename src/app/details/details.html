@@ -1,14 +1,17 @@
 <body>
     <section>
         <div class="left">
-            <div *ngIf="!roomInfo() || !roomInfo().images  || roomInfo().images.length === 0">
+            @if (!roomInfo() || !roomInfo().images || roomInfo().images.length === 0) {
+            <div>
                 <p>Loading room details...</p>
-            </div>
-            <div *ngIf="roomInfo() && roomInfo().images && roomInfo().images.length > 3">
-                <img [src]="roomInfo().images[3].source" alt="">
+            </div> }
+            @if (roomInfo() && roomInfo().images && roomInfo().images.length > 3) {
+            <div>
+                <img [src]="roomInfo().images[1].source" alt="">
                 <h1> {{roomInfo().name}} </h1>
                 <p>Price: {{roomInfo().pricePerNight}} </p>
-            </div>
+            </div> }
+
 
         </div>
 

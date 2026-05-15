@@ -4,12 +4,13 @@ import { Hotels } from './sastumroInfo';
 import { BehaviorSubject } from 'rxjs';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
 import { MyInfo } from './my-info';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Apis {
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public cookie: CookieService) { }
 
   loaderTruck: BehaviorSubject<boolean> = new BehaviorSubject(false)
 
@@ -35,25 +36,13 @@ export class Apis {
     return this.http.post("https://api.everrest.educata.dev/auth/sign_in", info, { responseType: "json" })
   }
   getMyInfo() {
-    let token = localStorage.getItem('token');
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth", { headers })
+    return this.http.get<MyInfo>("https://api.everrest.educata.dev/auth", {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
   }
   updateProfile(data: any) {
-    let token = localStorage.getItem('token');
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.patch("https://api.everrest.educata.dev/auth/update", data, { headers })
+    return this.http.patch("https://api.everrest.educata.dev/auth/update", data, {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
   }
-  changePassword(data: any) {
-    let token = localStorage.getItem('token');
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", data, { headers })
+  changePassword(info: any) {
+    return this.http.patch("https://api.everrest.educata.dev/auth/change_password", info, {headers: {Authorization: `Bearer ${this.cookie.get("user")}`}})
   }
   getAllBookings() {
     return this.http.get("https://hotelbooking.stepprojects.ge/api/Booking")

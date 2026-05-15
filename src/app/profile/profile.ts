@@ -3,6 +3,7 @@ import { Apis } from '../apis';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
 import { MyInfo } from './../my-info';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -10,11 +11,12 @@ import { MyInfo } from './../my-info';
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
-export class Profile implements OnInit {
+export class Profile {
   constructor(public service: Apis,
     public router: Router,
-    public actR: ActivatedRoute
-  ) { }
+    public actR: ActivatedRoute,
+    public cookie: CookieService
+  ) { this.loadUserData() }
 
   userInfo = signal<MyInfo | undefined>(undefined);
 
@@ -36,9 +38,6 @@ export class Profile implements OnInit {
     newPassword: new FormControl(),
   })
 
-  ngOnInit() {
-    this.loadUserData();
-  }
 
   loadUserData() {
     this.service.getMyInfo().subscribe({
@@ -64,47 +63,34 @@ export class Profile implements OnInit {
   }
 
   changePassword() {
-    if (!this.passwordForm.valid || !this.passwordForm.value.oldPassword || !this.passwordForm.value.newPassword) {
-      this.passMessage.nativeElement.innerText = "Please fill in all password fields"
-      this.passMessage.nativeElement.style.color = "red"
-      return;
-    }
-
     this.service.changePassword(this.passwordForm.value).subscribe({
       next: (data: any) => {
-        this.passMessage.nativeElement.innerText = "Password Changed Successfully"
+        this.passMessage.nativeElement.innerText = "Password Changed"
         this.passMessage.nativeElement.style.color = "green"
-        this.passwordForm.reset();
-        setTimeout(() => {
-          this.passMessage.nativeElement.innerText = "";
-        }, 3000);
       },
       error: (cudi: any) => {
-        console.log(cudi);
-        this.passMessage.nativeElement.innerText = cudi.error?.error || "Password change failed"
+        console.log();
+        this.passMessage.nativeElement.innerText = cudi.error.error
         this.passMessage.nativeElement.style.color = "red"
-        setTimeout(() => {
-          this.passMessage.nativeElement.innerText = "";
-        }, 3000);
       }
     })
   }
+
   updateUser() {
+
     this.service.updateProfile(this.formInfo.value).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.loadUserData();
-        alert("Profile updated successfully!");
+
       },
       error: (cudi: any) => {
-        console.log(cudi);
-        alert("Failed to update profile: " + (cudi.error?.error || "Unknown error"));
+
       }
     })
   }
 
   logOut() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/sign-in']);
+    this.cookie.delete('user');
+    this.router.navigate(['/']);
   }
 }

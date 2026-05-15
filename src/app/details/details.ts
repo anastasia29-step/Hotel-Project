@@ -1,8 +1,8 @@
-import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { Apis } from '../apis';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule, NgIf } from "../../../node_modules/@angular/common/types/_common_module-chunk";
+import { CommonModule} from "../../../node_modules/@angular/common/types/_common_module-chunk";
 
 @Component({
   selector: 'app-details',
