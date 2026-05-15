@@ -41,11 +41,11 @@ export class SignUp {
   })
 
   signUp() {
-    if(this.formInfo.invalid){
+    if (this.formInfo.invalid) {
       this.formInfo.markAllAsTouched();
       return;
     }
-    
+
     this.loading = true;
     this.errorMessage = '';
     this.successMessage = '';
@@ -55,13 +55,16 @@ export class SignUp {
         console.log(data);
         this.loading = false;
         this.successMessage = 'Account created successfully';
+        if (data?.accessToken) {
+          this.cookie.set('token', data.accessToken);
+        }
         this.formInfo.reset()
       },
       error: (error: any) => {
-        console.log(error);
+        console.log(error.error.errorKeys);
         this.loading = false;
-        this.errorMessage = 
-        error?.error?.message || 'Something went wrong'
+        this.errorMessage =
+          error?.error?.message || 'Something went wrong'
 
       }
     })
