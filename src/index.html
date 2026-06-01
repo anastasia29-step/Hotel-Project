@@ -13,9 +13,33 @@
   </style>
   <link href="https://db.onlinewebfonts.com/c/9a7e574c3eda05d71d03345d3f9e268e?family=Futura+LT+W01+Light+Oblique"
     rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 </head>
 
 <body>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'http://localhost:5678/webhook/ca4e7af0-2e2b-4964-883f-a25b11c9cdde/chat',
+      initialMessages: [
+        'Hi there! 👋',
+        'My name is Nathan. How can I assist you today?'
+      ],
+      i18n: {
+        en: {
+          title: 'Hi there! 👋',
+          subtitle: "Start a chat. We're here to help you 24/7.",
+          footer: '',
+          getStarted: 'New Conversation',
+          inputPlaceholder: 'Type your question..',
+        },
+      },
+    });
+  </script>
+
+
   <app-root></app-root>
 </body>
 
