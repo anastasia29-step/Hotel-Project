@@ -68,7 +68,7 @@ export class Details {
             this.bookSMS.nativeElement.classList.remove('bookSMSshow')
           }, 4000)
         }
-      })
+      })      
     } else {
       alert("Please, choose available dates")
     }

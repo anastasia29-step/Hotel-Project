@@ -55,4 +55,5 @@ export class Apis {
   deleteBooking(id: number) {
     return this.http.delete(`https://hotelbooking.stepprojects.ge/api/Booking/${id}`, { responseType: "text" })
   }
+  
 }
